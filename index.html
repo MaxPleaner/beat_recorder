@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang='en'>
+  <head>
+    <script src="./scripts/curry.js"></script>
+    <script src="./scripts/jquery.js"></script>
+    <script src="./scripts/underscore.js"></script>
+    <script src="./scripts/sounds.js"></script>
+    <script src="./scripts/app.js"></script>
+  </head>
+  <body>
+    <script>
+      $(function(){
+        
+        soundIds = App.SoundIds()
+        Kick = soundIds.Kick
+        Snare = soundIds.Snare
+        HiHat = soundIds.HiHat
+        Crash = soundIds.Crash
+
+        tickBase = [
+          [Kick], [HiHat], [HiHat], [Kick], [Snare], [HiHat], [HiHat], [Kick],
+          [HiHat], [HiHat], [Kick], [HiHat], [Snare], [Kick], [HiHat], [Snare]
+        ]
+        
+        ticks = _.flatten([
+          App.TicManips.Add(tickBase, Crash, 0),
+          tickBase,
+        ], true)
+
+        App.StartTicks(ticks)
+        
+      })
+    </script>
+  </body>
+</html>
