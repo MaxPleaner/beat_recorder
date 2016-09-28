@@ -1,0 +1,47 @@
+doctype html
+html lang='en'
+  head
+    script src='./scripts/curry.js'
+    script src='./scripts/jquery.js'
+    script src='./scripts/underscore.js'
+    script src='./scripts/sounds.js'
+    script src='./scripts/webaudio_tools.js'
+    script src='./scripts/app.js'
+  body
+    script
+      javascript:
+      
+        $(function(){
+          
+          soundIds = App.SoundIds()
+          Kick = soundIds.Kick
+          Snare = soundIds.Snare
+          HiHat = soundIds.HiHat
+          Crash = soundIds.Crash
+          
+          Kick2 = new Array(20).fill(Kick)
+  
+          ticks = [
+            
+            [HiHat, Kick2], [Kick], [Kick], [Kick],
+            [Kick], [], [Kick], [],
+            [HiHat, Kick2], [], [Kick], [],
+            [Kick], [], [Kick], [],
+            [HiHat, Snare], [], [Kick], [],
+            [Kick2], [], [Kick], [],
+            [HiHat, Kick], [], [Kick], [],
+            [Kick], [], [Kick], [],
+            
+            [HiHat, Kick2], [Kick], [Kick], [Kick],
+            [Kick], [], [Kick], [],
+            [HiHat, Kick2], [], [Kick], [],
+            [Kick], [], [Kick], [],
+            [HiHat, Snare], [], [Kick], [],
+            [Kick2], [], [Snare, Kick], [],
+            [HiHat, Kick2], [Kick], [Kick], [Kick],
+            [Snare, Kick], [], [Kick], [],
+          ]
+  
+          App.StartTicks(ticks, 50)
+          
+        })

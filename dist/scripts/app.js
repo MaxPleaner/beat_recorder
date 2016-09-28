@@ -7,9 +7,9 @@
     SoundIds: function() {
       return App.Private._GetSoundIds();
     },
-    StartTicks: function(tics) {
+    StartTicks: function(tics, interval) {
       window.tickIdx = 0;
-      return window.setInterval(App.Private.TickFn(tics), 200);
+      return window.setInterval(App.Private.TickFn(tics), interval);
     },
     TicManips: {
       Add: function(ticks, addedTick, idx) {

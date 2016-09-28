@@ -1,13 +1,13 @@
 window.App =
     
-  PlaySound: (soundId) ->
-    createjs.Sound.play(soundId);
-    
+  StartTicks: (tics, interval) ->
+    window.tickIdx = 0
+    window.setInterval(App.Private.TickFn(tics), interval)
+
   SoundIds: () -> App.Private._GetSoundIds()
   
-  StartTicks: (tics) ->
-    window.tickIdx = 0
-    window.setInterval(App.Private.TickFn(tics), 200)
+  PlaySound: (soundId) ->
+    createjs.Sound.play(soundId);
   
   TicManips:
     
