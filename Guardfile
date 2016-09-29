@@ -25,8 +25,8 @@ def start_server
   nil
 end
 
-def compile
-  `ruby gen.rb`
+def compile(path='')
+  `ruby gen.rb #{path}`
 end
 
 # Start the server even if no file has changed.
